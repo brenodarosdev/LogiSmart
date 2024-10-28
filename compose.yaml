@@ -7,3 +7,13 @@ services:
       - 'POSTGRES_USER=${POSTGRES_USER}'
     ports:
       - '5432:5432'
+
+  wiremock:
+    image: "wiremock/wiremock:latest"
+    container_name: viacep_wiremock
+    volumes:
+      - ./src/main/resources/wiremock/__files:/home/wiremock/__files
+      - ./src/main/resources/wiremock/mappings:/home/wiremock/mappings
+    ports:
+      - '8181:8080'
+    entrypoint: [ "/docker-entrypoint.sh", "--global-response-templating", "--disable-gzip", "--verbose" ]
