@@ -8,6 +8,7 @@ import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.br.CNPJ;
 
 import java.util.UUID;
 
@@ -21,20 +22,23 @@ public class Remetente {
     private UUID id;
     @NotBlank
     private String nome;
-    @Pattern(regexp = "^\\d{2}\\s?\\d{8,9}$", message = "O telefone deve ter o DDD seguido de 8 ou 9 dígitos")
+    @CNPJ
     @NotBlank
     @Column(unique = true)
+    private String cnpj;
+    @NotBlank
+    @Pattern(regexp = "^\\d{2}\\s?\\d{8,9}$", message = "O telefone deve ter o DDD seguido de 8 ou 9 dígitos")
     private String telefone;
     @Email
     @NotBlank
-    @Column(unique = true)
     private String email;
-    @Pattern(regexp = "^\\d{5}-?\\d{3}$", message = "O CEP deve ter o formato 99999-999")
     @NotBlank
+    @Pattern(regexp = "^\\d{5}-?\\d{3}$", message = "O CEP deve ter o formato 99999-999")
     private String cep;
 
     public Remetente(RemetenteRequest novoRemetenteRequest) {
         this.nome = novoRemetenteRequest.getNome();
+        this.cnpj = novoRemetenteRequest.getCnpj();
         this.telefone = novoRemetenteRequest.getTelefone();
         this.email = novoRemetenteRequest.getEmail();
         this.cep = novoRemetenteRequest.getCep();

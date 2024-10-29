@@ -20,7 +20,7 @@ public class RemetenteInfraRepository implements RemetenteRepository {
         try {
             remetenteSpringDataJPARepository.save(remetente);
         } catch (DataIntegrityViolationException e) {
-            throw APIException.build(HttpStatus.BAD_REQUEST, "Já existe um remetente cadastrado com esse email ou telefone.");
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Já existe um remetente cadastrado com esse CNPJ.");
         }
         log.debug("[finish] RemetenteInfraRepository - salvaRemetente");
     }
