@@ -24,7 +24,8 @@ public class DestinatarioController implements DestinatarioAPI {
     @Override
     public DestinatarioResponse getBuscaDestinatarioPorId(UUID idDestinatario) {
         log.debug("[start] DestinatarioController - getBuscaDestinatarioPorId");
+        DestinatarioResponse response = destinatarioService.buscaDestinatarioPorId(idDestinatario);
         log.debug("[finish] DestinatarioController - getBuscaDestinatarioPorId");
-        return null;
+        return response;
     }
 }
