@@ -46,8 +46,8 @@ public class DestinatarioApplicationService implements DestinatarioService {
     @Override
     public void deletaDestinatario(UUID idDestinatario) {
         log.debug("[start] DestinatarioApplicationService - deletaDestinatario");
-        Destinatario destinatario = destinatarioRepository.buscaDestinatarioPorId(idDestinatario);
-        destinatarioRepository.deletaDestinatario(destinatario);
+        destinatarioRepository.buscaDestinatarioPorId(idDestinatario);
+        destinatarioRepository.deletaDestinatarioPorId(idDestinatario);
         log.debug("[finish] DestinatarioApplicationService - deletaDestinatario");
     }
 }
