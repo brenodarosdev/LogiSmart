@@ -35,4 +35,11 @@ public class DestinatarioController implements DestinatarioAPI {
         destinatarioService.alteraDestinatario(alteraDestinatarioRequest, idDestinatario);
         log.debug("[finish] DestinatarioController - patchAlteraDestinatario");
     }
+
+    @Override
+    public void deleteDeletaDestinatario(UUID idDestinatario) {
+        log.debug("[start] DestinatarioController - deleteDeletaDestinatario");
+        destinatarioService.deletaDestinatario(idDestinatario);
+        log.debug("[finish] DestinatarioController - deleteDeletaDestinatario");
+    }
 }

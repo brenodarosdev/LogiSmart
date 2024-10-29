@@ -10,4 +10,5 @@ public interface DestinatarioService {
     NovoDestinatarioResponse novoDestinatario(DestinatarioRequest novoDestinatarioRequest);
     DestinatarioResponse buscaDestinatarioPorId(UUID idDestinatario);
     void alteraDestinatario(DestinatarioRequest alteraDestinatarioRequest, UUID idDestinatario);
+    void deletaDestinatario(UUID idDestinatario);
 }

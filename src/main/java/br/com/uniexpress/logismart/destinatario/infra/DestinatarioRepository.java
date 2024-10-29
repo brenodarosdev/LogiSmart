@@ -7,4 +7,5 @@ import java.util.UUID;
 public interface DestinatarioRepository {
     void salvaDestinatario(Destinatario destinatario);
     Destinatario buscaDestinatarioPorId(UUID idDestinatario);
+    void deletaDestinatarioPorId(UUID idDestinatario);
 }

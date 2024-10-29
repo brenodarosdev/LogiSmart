@@ -35,4 +35,11 @@ public class DestinatarioInfraRepository implements DestinatarioRepository {
         log.debug("[finish] DestinatarioInfraRepository - buscaDestinatarioPorId");
         return destinatario;
     }
+
+    @Override
+    public void deletaDestinatarioPorId(UUID idDestinatario) {
+        log.debug("[start] DestinatarioInfraRepository - deletaDestinatarioPorId");
+        destinatarioSpringDataJPARepository.deleteById(idDestinatario);
+        log.debug("[finish] DestinatarioInfraRepository - deletaDestinatarioPorId");
+    }
 }
