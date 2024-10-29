@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @Log4j2
 @RestController
 @RequiredArgsConstructor
@@ -16,6 +18,14 @@ public class DestinatarioController implements DestinatarioAPI {
         log.debug("[start] DestinatarioController - postNovoDestinatario");
         NovoDestinatarioResponse response = destinatarioService.novoDestinatario(novoDestinatarioRequest);
         log.debug("[finish] DestinatarioController - postNovoDestinatario");
+        return response;
+    }
+
+    @Override
+    public DestinatarioResponse getBuscaDestinatarioPorId(UUID idDestinatario) {
+        log.debug("[start] DestinatarioController - getBuscaDestinatarioPorId");
+        DestinatarioResponse response = destinatarioService.buscaDestinatarioPorId(idDestinatario);
+        log.debug("[finish] DestinatarioController - getBuscaDestinatarioPorId");
         return response;
     }
 }

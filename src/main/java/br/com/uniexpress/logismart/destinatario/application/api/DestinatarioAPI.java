@@ -6,6 +6,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @Tag(name = "Destinatário")
 @RequestMapping("/public/v1/destinatario")
@@ -14,4 +16,9 @@ public interface DestinatarioAPI {
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Cria novo destinatario")
     NovoDestinatarioResponse postNovoDestinatario(@RequestBody @Valid DestinatarioRequest novoDestinatarioRequest);
+
+    @GetMapping("/busca-destinatario/{idDestinatario}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Busca destinatario por ID")
+    DestinatarioResponse getBuscaDestinatarioPorId(@PathVariable UUID idDestinatario);
 }
