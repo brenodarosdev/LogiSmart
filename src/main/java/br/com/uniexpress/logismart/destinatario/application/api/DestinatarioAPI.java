@@ -27,4 +27,9 @@ public interface DestinatarioAPI {
     @Operation(summary = "Edita campos do destinatario")
     void patchAlteraDestinatario(@RequestBody @Valid DestinatarioRequest alteraDestinatarioRequest,
                                  @PathVariable UUID idDestinatario);
+
+    @DeleteMapping("/deleta-destinatario/{idDestinatario}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(summary = "Deleta destinatario")
+    void deleteDeletaDestinatario(@PathVariable UUID idDestinatario);
 }
