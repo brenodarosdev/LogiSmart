@@ -33,4 +33,10 @@ public class Destinatario {
         this.telefone = novoDestinatarioRequest.getTelefone();
         this.cep = novoDestinatarioRequest.getCep();
     }
+
+    public void alteraDestinatario(DestinatarioRequest alteraDestinatarioRequest) {
+        this.nome = alteraDestinatarioRequest.getNome();
+        this.telefone = alteraDestinatarioRequest.getTelefone();
+        this.cep = alteraDestinatarioRequest.getCep();
+    }
 }
