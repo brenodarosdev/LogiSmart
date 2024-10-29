@@ -28,4 +28,10 @@ public class DestinatarioController implements DestinatarioAPI {
         log.debug("[finish] DestinatarioController - getBuscaDestinatarioPorId");
         return response;
     }
+
+    @Override
+    public void patchAlteraDestinatario(DestinatarioRequest editaDestinatarioRequest, UUID idDestinatario) {
+        log.debug("[start] DestinatarioController - patchAlteraDestinatario");
+        log.debug("[finish] DestinatarioController - patchAlteraDestinatario");
+    }
 }
