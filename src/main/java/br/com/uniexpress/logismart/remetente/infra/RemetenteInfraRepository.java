@@ -1,8 +1,11 @@
 package br.com.uniexpress.logismart.remetente.infra;
 
+import br.com.uniexpress.logismart.handler.APIException;
 import br.com.uniexpress.logismart.remetente.domain.Remetente;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 @Log4j2
@@ -14,8 +17,11 @@ public class RemetenteInfraRepository implements RemetenteRepository {
     @Override
     public void salvaRemetente(Remetente remetente) {
         log.debug("[start] RemetenteInfraRepository - salvaRemetente");
-        remetenteSpringDataJPARepository.save(remetente);
-        // TODO Tratar exeption caso campos únicos sejam duplicados
+        try {
+            remetenteSpringDataJPARepository.save(remetente);
+        } catch (DataIntegrityViolationException e) {
+            throw APIException.build(HttpStatus.BAD_REQUEST, "Já existe um remetente cadastrado com esse email ou telefone.");
+        }
         log.debug("[finish] RemetenteInfraRepository - salvaRemetente");
     }
 }
