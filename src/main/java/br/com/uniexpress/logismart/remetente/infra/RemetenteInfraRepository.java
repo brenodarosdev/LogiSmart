@@ -9,9 +9,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class RemetenteInfraRepository implements RemetenteRepository {
+    private final RemetenteSpringDataJPARepository remetenteSpringDataJPARepository;
+
     @Override
     public void salvaRemetente(Remetente remetente) {
         log.debug("[start] RemetenteInfraRepository - salvaRemetente");
+        remetenteSpringDataJPARepository.save(remetente);
+        // TODO Tratar exeption caso campos únicos sejam duplicados
         log.debug("[finish] RemetenteInfraRepository - salvaRemetente");
     }
 }
