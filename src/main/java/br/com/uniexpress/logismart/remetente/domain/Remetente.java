@@ -3,6 +3,7 @@ package br.com.uniexpress.logismart.remetente.domain;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,7 +20,7 @@ public class Remetente {
     private UUID id;
     @NotBlank
     private String nome;
-    // TODO Add validação para telefone
+    @Pattern(regexp = "^\\d{2}\\s?\\d{8,9}$", message = "O telefone deve ter o DDD seguido de 8 ou 9 dígitos")
     @NotBlank
     @Column(unique = true)
     private String telefone;
@@ -27,7 +28,7 @@ public class Remetente {
     @NotBlank
     @Column(unique = true)
     private String email;
-    // TODO Add validação para CEP
+    @Pattern(regexp = "^\\d{5}-?\\d{3}$", message = "O CEP deve ter o formato 99999-999")
     @NotBlank
     private String CEP;
 
