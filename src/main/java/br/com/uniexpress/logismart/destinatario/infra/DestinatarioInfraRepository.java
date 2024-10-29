@@ -35,4 +35,10 @@ public class DestinatarioInfraRepository implements DestinatarioRepository {
         log.debug("[finish] DestinatarioInfraRepository - buscaDestinatarioPorId");
         return destinatario;
     }
+
+    @Override
+    public void deletaDestinatario(Destinatario destinatario) {
+        log.debug("[start] DestinatarioInfraRepository - deletaDestinatario");
+        log.debug("[finish] DestinatarioInfraRepository - deletaDestinatario");
+    }
 }
