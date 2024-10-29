@@ -22,9 +22,9 @@ public interface DestinatarioAPI {
     @Operation(summary = "Busca destinatario por ID")
     DestinatarioResponse getBuscaDestinatarioPorId(@PathVariable UUID idDestinatario);
 
-    @PatchMapping("/edita-destinatario/{idDestinatario}")
+    @PatchMapping("/altera-destinatario/{idDestinatario}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Edita campos do destinatario")
-    void patchAlteraDestinatario(@RequestBody @Valid DestinatarioRequest editaDestinatarioRequest,
+    void patchAlteraDestinatario(@RequestBody @Valid DestinatarioRequest alteraDestinatarioRequest,
                                  @PathVariable UUID idDestinatario);
 }

@@ -30,9 +30,9 @@ public class DestinatarioController implements DestinatarioAPI {
     }
 
     @Override
-    public void patchAlteraDestinatario(DestinatarioRequest editaDestinatarioRequest, UUID idDestinatario) {
+    public void patchAlteraDestinatario(DestinatarioRequest alteraDestinatarioRequest, UUID idDestinatario) {
         log.debug("[start] DestinatarioController - patchAlteraDestinatario");
-        destinatarioService.alteraDestinatario(editaDestinatarioRequest, idDestinatario);
+        destinatarioService.alteraDestinatario(alteraDestinatarioRequest, idDestinatario);
         log.debug("[finish] DestinatarioController - patchAlteraDestinatario");
     }
 }

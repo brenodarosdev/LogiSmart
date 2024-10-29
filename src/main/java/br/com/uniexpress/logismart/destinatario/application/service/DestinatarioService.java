@@ -9,5 +9,5 @@ import java.util.UUID;
 public interface DestinatarioService {
     NovoDestinatarioResponse novoDestinatario(DestinatarioRequest novoDestinatarioRequest);
     DestinatarioResponse buscaDestinatarioPorId(UUID idDestinatario);
-    void alteraDestinatario(DestinatarioRequest editaDestinatarioRequest, UUID idDestinatario);
+    void alteraDestinatario(DestinatarioRequest alteraDestinatarioRequest, UUID idDestinatario);
 }

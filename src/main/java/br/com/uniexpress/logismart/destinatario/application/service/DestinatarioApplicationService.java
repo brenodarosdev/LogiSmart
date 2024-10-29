@@ -35,10 +35,10 @@ public class DestinatarioApplicationService implements DestinatarioService {
     }
 
     @Override
-    public void alteraDestinatario(DestinatarioRequest editaDestinatarioRequest, UUID idDestinatario) {
+    public void alteraDestinatario(DestinatarioRequest alteraDestinatarioRequest, UUID idDestinatario) {
         log.debug("[start] DestinatarioApplicationService - alteraDestinatario");
         Destinatario destinatario = destinatarioRepository.buscaDestinatarioPorId(idDestinatario);
-        destinatario.alteraDestinatario(editaDestinatarioRequest);
+        destinatario.alteraDestinatario(alteraDestinatarioRequest);
         destinatarioRepository.salvaDestinatario(destinatario);
         log.debug("[finish] DestinatarioApplicationService - alteraDestinatario");
     }
