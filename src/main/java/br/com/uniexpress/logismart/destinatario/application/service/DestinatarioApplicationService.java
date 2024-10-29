@@ -33,4 +33,10 @@ public class DestinatarioApplicationService implements DestinatarioService {
         log.debug("[finish] DestinatarioApplicationService - buscaDestinatarioPorId");
         return new DestinatarioResponse(destinatario);
     }
+
+    @Override
+    public void alteraDestinatario(DestinatarioRequest editaDestinatarioRequest, UUID idDestinatario) {
+        log.debug("[start] DestinatarioApplicationService - alteraDestinatario");
+        log.debug("[finish] DestinatarioApplicationService - alteraDestinatario");
+    }
 }
