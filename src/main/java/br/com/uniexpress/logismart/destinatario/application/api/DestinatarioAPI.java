@@ -14,22 +14,22 @@ import java.util.UUID;
 public interface DestinatarioAPI {
     @PostMapping("/novo-destinatario")
     @ResponseStatus(HttpStatus.CREATED)
-    @Operation(summary = "Cria novo destinatario")
+    @Operation(summary = "Cria novo destinatário")
     NovoDestinatarioResponse postNovoDestinatario(@RequestBody @Valid DestinatarioRequest novoDestinatarioRequest);
 
     @GetMapping("/busca-destinatario/{idDestinatario}")
     @ResponseStatus(HttpStatus.OK)
-    @Operation(summary = "Busca destinatario por ID")
+    @Operation(summary = "Busca destinatário por ID")
     DestinatarioResponse getBuscaDestinatarioPorId(@PathVariable UUID idDestinatario);
 
     @PatchMapping("/altera-destinatario/{idDestinatario}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @Operation(summary = "Edita campos do destinatario")
+    @Operation(summary = "Edita campos do destinatário")
     void patchAlteraDestinatario(@RequestBody @Valid DestinatarioRequest alteraDestinatarioRequest,
                                  @PathVariable UUID idDestinatario);
 
     @DeleteMapping("/deleta-destinatario/{idDestinatario}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @Operation(summary = "Deleta destinatario")
+    @Operation(summary = "Deleta destinatário")
     void deleteDeletaDestinatario(@PathVariable UUID idDestinatario);
 }
