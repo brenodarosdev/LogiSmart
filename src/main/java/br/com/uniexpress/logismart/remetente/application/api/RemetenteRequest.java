@@ -20,5 +20,5 @@ public class RemetenteRequest {
     String email;
     @Pattern(regexp = "^\\d{5}-?\\d{3}$", message = "O CEP deve ter o formato 99999-999")
     @NotBlank
-    String CEP;
+    String cep;
 }

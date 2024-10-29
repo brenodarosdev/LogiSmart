@@ -31,12 +31,12 @@ public class Remetente {
     private String email;
     @Pattern(regexp = "^\\d{5}-?\\d{3}$", message = "O CEP deve ter o formato 99999-999")
     @NotBlank
-    private String CEP;
+    private String cep;
 
     public Remetente(RemetenteRequest novoRemetenteRequest) {
         this.nome = novoRemetenteRequest.getNome();
         this.telefone = novoRemetenteRequest.getTelefone();
         this.email = novoRemetenteRequest.getEmail();
-        this.CEP = novoRemetenteRequest.getCEP();
+        this.cep = novoRemetenteRequest.getCep();
     }
 }
