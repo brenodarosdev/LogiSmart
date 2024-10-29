@@ -1,5 +1,6 @@
 package br.com.uniexpress.logismart.destinatario.domain;
 
+import br.com.uniexpress.logismart.destinatario.application.api.DestinatarioRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -26,4 +27,10 @@ public class Destinatario {
     @NotBlank
     @Pattern(regexp = "^\\d{5}-?\\d{3}$", message = "O CEP deve ter o formato 99999-999")
     private String cep;
+
+    public Destinatario(DestinatarioRequest novoDestinatarioRequest) {
+        this.nome = novoDestinatarioRequest.getNome();
+        this.telefone = novoDestinatarioRequest.getTelefone();
+        this.cep = novoDestinatarioRequest.getCep();
+    }
 }

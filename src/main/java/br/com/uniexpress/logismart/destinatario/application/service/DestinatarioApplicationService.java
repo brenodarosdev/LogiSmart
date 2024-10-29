@@ -2,6 +2,8 @@ package br.com.uniexpress.logismart.destinatario.application.service;
 
 import br.com.uniexpress.logismart.destinatario.application.api.DestinatarioRequest;
 import br.com.uniexpress.logismart.destinatario.application.api.NovoDestinatarioResponse;
+import br.com.uniexpress.logismart.destinatario.domain.Destinatario;
+import br.com.uniexpress.logismart.destinatario.infra.DestinatarioRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -10,10 +12,14 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 public class DestinatarioApplicationService implements DestinatarioService {
+    private final DestinatarioRepository destinatarioRepository;
+
     @Override
     public NovoDestinatarioResponse novoDestinatario(DestinatarioRequest novoDestinatarioRequest) {
         log.debug("[start] DestinatarioApplicationService - novoDestinatario");
+        Destinatario destinatario = new Destinatario(novoDestinatarioRequest);
+        destinatarioRepository.salvaDestinatario(destinatario);
         log.debug("[finish] DestinatarioApplicationService - novoDestinatario");
-        return null;
+        return new NovoDestinatarioResponse(destinatario);
     }
 }
