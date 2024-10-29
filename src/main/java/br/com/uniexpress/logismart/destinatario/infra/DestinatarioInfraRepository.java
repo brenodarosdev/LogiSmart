@@ -30,7 +30,9 @@ public class DestinatarioInfraRepository implements DestinatarioRepository {
     @Override
     public Destinatario buscaDestinatarioPorId(UUID idDestinatario) {
         log.debug("[start] DestinatarioInfraRepository - buscaDestinatarioPorId");
+        Destinatario destinatario = destinatarioSpringDataJPARepository.findDestinatarioById(idDestinatario)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Destinatário não encontrado!"));
         log.debug("[finish] DestinatarioInfraRepository - buscaDestinatarioPorId");
-        return null;
+        return destinatario;
     }
 }
