@@ -8,6 +8,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Log4j2
 @Repository
 @RequiredArgsConstructor
@@ -23,5 +25,12 @@ public class DestinatarioInfraRepository implements DestinatarioRepository {
             throw APIException.build(HttpStatus.BAD_REQUEST, "Já existe um destinatário cadastrado com esse telefone.");
         }
         log.debug("[finish] DestinatarioInfraRepository - salvaDestinatario");
+    }
+
+    @Override
+    public Destinatario buscaDestinatarioPorId(UUID idDestinatario) {
+        log.debug("[start] DestinatarioInfraRepository - buscaDestinatarioPorId");
+        log.debug("[finish] DestinatarioInfraRepository - buscaDestinatarioPorId");
+        return null;
     }
 }

@@ -29,7 +29,8 @@ public class DestinatarioApplicationService implements DestinatarioService {
     @Override
     public DestinatarioResponse buscaDestinatarioPorId(UUID idDestinatario) {
         log.debug("[start] DestinatarioApplicationService - buscaDestinatarioPorId");
+        Destinatario destinatario = destinatarioRepository.buscaDestinatarioPorId(idDestinatario);
         log.debug("[finish] DestinatarioApplicationService - buscaDestinatarioPorId");
-        return null;
+        return new DestinatarioResponse(destinatario);
     }
 }
