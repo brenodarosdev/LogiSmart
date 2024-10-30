@@ -30,7 +30,9 @@ public class RemetenteInfraRepository implements RemetenteRepository {
     @Override
     public Remetente buscaRemetentePorId(UUID idRemetente) {
         log.debug("[start] RemetenteInfraRepository - buscaRemetentePorId");
+        Remetente remetente = remetenteSpringDataJPARepository.findRemetenteById(idRemetente)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Remetente não encontrado!"));
         log.debug("[finish] RemetenteInfraRepository - buscaRemetentePorId");
-        return null;
+        return remetente;
     }
 }

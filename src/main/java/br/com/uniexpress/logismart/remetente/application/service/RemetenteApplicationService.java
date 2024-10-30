@@ -31,6 +31,6 @@ public class RemetenteApplicationService implements RemetenteService {
         log.debug("[start] RemetenteApplicationService - buscaRemetentePorId");
         Remetente remetente = remetenteRepository.buscaRemetentePorId(idRemetente);
         log.debug("[finish] RemetenteApplicationService - buscaRemetentePorId");
-        return null;
+        return new RemetenteResponse(remetente);
     }
 }
