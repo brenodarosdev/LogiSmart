@@ -8,6 +8,8 @@ import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Log4j2
 @Repository
 @RequiredArgsConstructor
@@ -23,5 +25,12 @@ public class RemetenteInfraRepository implements RemetenteRepository {
             throw APIException.build(HttpStatus.BAD_REQUEST, "Já existe um remetente cadastrado com esse CNPJ.");
         }
         log.debug("[finish] RemetenteInfraRepository - salvaRemetente");
+    }
+
+    @Override
+    public Remetente buscaRemetentePorId(UUID idRemetente) {
+        log.debug("[start] RemetenteInfraRepository - buscaRemetentePorId");
+        log.debug("[finish] RemetenteInfraRepository - buscaRemetentePorId");
+        return null;
     }
 }

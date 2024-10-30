@@ -29,6 +29,7 @@ public class RemetenteApplicationService implements RemetenteService {
     @Override
     public RemetenteResponse buscaRemetentePorId(UUID idRemetente) {
         log.debug("[start] RemetenteApplicationService - buscaRemetentePorId");
+        Remetente remetente = remetenteRepository.buscaRemetentePorId(idRemetente);
         log.debug("[finish] RemetenteApplicationService - buscaRemetentePorId");
         return null;
     }
