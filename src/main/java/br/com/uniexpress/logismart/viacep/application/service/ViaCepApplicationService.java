@@ -16,6 +16,6 @@ public class ViaCepApplicationService implements ViaCepService {
         log.debug("[start] ViaCepApplicationService - ConsultaCep");
         ViaCepResponse response = viaCepClientFeign.consultaCep(cep);
         log.debug("[finish] ViaCepApplicationService - ConsultaCep");
-        return null;
+        return response;
     }
 }
