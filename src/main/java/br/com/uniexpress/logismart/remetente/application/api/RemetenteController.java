@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.UUID;
+
 @Log4j2
 @RestController
 @RequiredArgsConstructor
@@ -17,5 +19,12 @@ public class RemetenteController implements RemetenteAPI {
         NovoRemetenteResponse response = remetenteService.novoRemetente(novoRemetenteRequest);
         log.debug("[finish] RemetenteController - postNovoRemetente");
         return response;
+    }
+
+    @Override
+    public RemetenteResponse getBuscaRemetentePorId(UUID idRemetente) {
+        log.debug("[start] RemetenteController - getBuscaRemetentePorId");
+        log.debug("[finish] RemetenteController - getBuscaRemetentePorId");
+        return null;
     }
 }
