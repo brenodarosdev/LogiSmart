@@ -10,4 +10,5 @@ public interface ObjetoService {
     NovoObjetoResponse novoObjeto(ObjetoRequest novoObjetoRequest);
     ObjetoResponse buscaObjetoPorId(UUID idObjeto);
     void alteraObjeto(ObjetoRequest alteraObjetoRequest, UUID idObjeto);
+    void deletaObjeto(UUID idObjeto);
 }

@@ -62,4 +62,10 @@ public class ObjetoApplicationService implements ObjetoService {
         objetoRepository.salvaObjeto(objeto);
         log.debug("[finish] ObjetoApplicationService - alteraObjeto");
     }
+
+    @Override
+    public void deletaObjeto(UUID idObjeto) {
+        log.debug("[start] ObjetoApplicationService - deletaObjeto");
+        log.debug("[finish] ObjetoApplicationService - deletaObjeto");
+    }
 }
