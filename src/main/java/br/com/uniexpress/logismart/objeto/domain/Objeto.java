@@ -68,5 +68,14 @@ public class Objeto {
             this.status = StausEnvio.A_CAMINHO;
         } else {
             throw APIException.build(HttpStatus.CONFLICT, "O status já está definido para a caminho");
-        }    }
+        }
+    }
+
+    public void alteraStatusParaEntregue() {
+        if (!this.status.equals(StausEnvio.ENTREGUE)) {
+            this.status = StausEnvio.ENTREGUE;
+        } else {
+            throw APIException.build(HttpStatus.CONFLICT, "O status já está definido para entregue");
+        }
+    }
 }
