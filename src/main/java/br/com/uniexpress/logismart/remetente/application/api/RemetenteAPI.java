@@ -21,4 +21,10 @@ public interface RemetenteAPI {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Busca remetente por ID")
     RemetenteResponse getBuscaRemetentePorId(@PathVariable UUID idRemetente);
+
+    @PatchMapping("/altera-remetente/{idRemetente}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(summary = "Edita campos do remetente")
+    void patchAlteraRemetente(@RequestBody @Valid RemetenteRequest alteraRemetenteRequest,
+                             @PathVariable UUID idRemetente);
 }
