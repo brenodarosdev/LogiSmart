@@ -18,7 +18,7 @@ public class ViaCepApplicationService implements ViaCepService {
     public ViaCepResponse ConsultaCep(String cep) {
         log.debug("[start] ViaCepApplicationService - ConsultaCep");
         ViaCepResponse response = viaCepClientFeign.consultaCep(cep);
-        ApiLog apiLog = apiLogService.salvaLog(response.toString());
+        apiLogService.salvaLog(response.toString());
         log.debug("[finish] ViaCepApplicationService - ConsultaCep");
         return response;
     }

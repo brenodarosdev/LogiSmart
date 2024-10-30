@@ -9,9 +9,13 @@ import org.springframework.stereotype.Repository;
 @Repository
 @RequiredArgsConstructor
 public class ApiLogInfraRepository implements ApiLogRepository {
+    private final ApiLogSpringDataJPARepository apiLogSpringDataJPARepository;
+
     @Override
     public void salvaLog(ApiLog apiLog) {
         log.debug("[start] ApiLogInfraRepository - salvaLog");
+        apiLogSpringDataJPARepository.save(apiLog);
+        log.info(apiLog.toString());
         log.debug("[finish] ApiLogInfraRepository - salvaLog");
     }
 }

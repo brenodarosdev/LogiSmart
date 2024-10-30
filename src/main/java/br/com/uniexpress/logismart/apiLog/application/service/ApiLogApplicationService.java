@@ -13,11 +13,10 @@ public class ApiLogApplicationService implements ApiLogService {
     private final ApiLogRepository apiLogRepository;
 
     @Override
-    public ApiLog salvaLog(String response) {
+    public void salvaLog(String response) {
         log.debug("[start] ApiLogApplicationService - salvaLog");
         ApiLog apiLog = new ApiLog(response);
         apiLogRepository.salvaLog(apiLog);
         log.debug("[finish] ApiLogApplicationService - salvaLog");
-        return null;
     }
 }

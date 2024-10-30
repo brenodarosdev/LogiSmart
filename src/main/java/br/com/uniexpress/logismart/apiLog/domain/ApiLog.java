@@ -4,12 +4,14 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Getter;
 import lombok.NonNull;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Getter
 @Entity
+@ToString
 public class ApiLog {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
