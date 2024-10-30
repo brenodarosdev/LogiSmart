@@ -1,9 +1,11 @@
 package br.com.uniexpress.logismart.objeto.infra;
 
+import br.com.uniexpress.logismart.handler.APIException;
 import br.com.uniexpress.logismart.objeto.domain.Objeto;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.antlr.v4.runtime.misc.LogManager;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;
@@ -24,7 +26,9 @@ public class ObjetoInfraRepository implements ObjetoRepository {
     @Override
     public Objeto buscaObjetoPorId(UUID idObjeto) {
         log.debug("[start] ObjetoInfraRepository - buscaObjetoPorId");
+        Objeto objeto = objetoSpringDataJPARepository.findObjetoById(idObjeto)
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Objeto não encontrado!"));
         log.debug("[finish] ObjetoInfraRepository - buscaObjetoPorId");
-        return null;
+        return objeto;
     }
 }

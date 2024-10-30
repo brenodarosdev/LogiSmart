@@ -47,6 +47,6 @@ public class ObjetoApplicationService implements ObjetoService {
         log.debug("[start] ObjetoApplicationService - buscaObjetoPorId");
         Objeto objeto = objetoRepository.buscaObjetoPorId(idObjeto);
         log.debug("[finish] ObjetoApplicationService - buscaObjetoPorId");
-        return null;
+        return new ObjetoResponse(objeto);
     }
 }
