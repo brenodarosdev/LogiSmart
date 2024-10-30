@@ -7,4 +7,5 @@ import java.util.UUID;
 public interface RemetenteRepository {
     void salvaRemetente(Remetente remetente);
     Remetente buscaRemetentePorId(UUID idRemetente);
+    void deletaRemetentePorId(UUID idRemetente);
 }

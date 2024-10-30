@@ -27,4 +27,9 @@ public interface RemetenteAPI {
     @Operation(summary = "Edita campos do remetente")
     void patchAlteraRemetente(@RequestBody @Valid AlteraRemetenteRequest alteraRemetenteRequest,
                              @PathVariable UUID idRemetente);
+
+    @DeleteMapping("/deleta-remetente/{idRemetente}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(summary = "Deleta remetente")
+    void deleteDeletaRemetente(@PathVariable UUID idRemetente);
 }
