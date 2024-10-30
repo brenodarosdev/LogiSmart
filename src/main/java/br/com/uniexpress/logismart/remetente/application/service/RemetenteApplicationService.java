@@ -21,8 +21,8 @@ public class RemetenteApplicationService implements RemetenteService {
     @Override
     public NovoRemetenteResponse novoRemetente(RemetenteRequest novoRemetenteRequest) {
         log.debug("[start] RemetenteApplicationService - novoRemetente");
-         Remetente remetente = new Remetente(novoRemetenteRequest);
-         remetenteRepository.salvaRemetente(remetente);
+        Remetente remetente = new Remetente(novoRemetenteRequest);
+        remetenteRepository.salvaRemetente(remetente);
         log.debug("[finish] RemetenteApplicationService - novoRemetente");
         return new NovoRemetenteResponse(remetente);
     }
