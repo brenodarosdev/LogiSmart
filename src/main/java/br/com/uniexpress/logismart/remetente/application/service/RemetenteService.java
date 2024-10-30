@@ -11,4 +11,5 @@ public interface RemetenteService {
     NovoRemetenteResponse novoRemetente(RemetenteRequest novoRemetenteRequest);
     RemetenteResponse buscaRemetentePorId(UUID idRemetente);
     void alteraRemetente(AlteraRemetenteRequest alteraRemetenteRequest, UUID idRemetente);
+    void deletaRemetente(UUID idRemetente);
 }

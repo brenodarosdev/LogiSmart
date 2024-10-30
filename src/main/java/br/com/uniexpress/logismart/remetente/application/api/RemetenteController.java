@@ -39,6 +39,7 @@ public class RemetenteController implements RemetenteAPI {
     @Override
     public void deleteDeletaRemetente(UUID idRemetente) {
         log.debug("[start] RemetenteController - deleteDeletaRemetente");
+        remetenteService.deletaRemetente(idRemetente);
         log.debug("[finish] RemetenteController - deleteDeletaRemetente");
     }
 }
