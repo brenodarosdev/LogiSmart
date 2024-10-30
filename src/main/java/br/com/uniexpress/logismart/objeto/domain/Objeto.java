@@ -20,13 +20,13 @@ public class Objeto {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", updatable = false, unique = true, nullable = false)
     private UUID id;
-    @NotBlank
+    @NotNull
     private UUID idRemetente;
-    @NotBlank
+    @NotNull
     private UUID idDestinatario;
     @NotNull
     private StausEnvio status;
-    @NotNull
+    @NotBlank
     private String descricao;
     @NotNull
     private Double quilos;
