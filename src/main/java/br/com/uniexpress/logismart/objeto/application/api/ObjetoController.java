@@ -32,6 +32,7 @@ public class ObjetoController implements ObjetoAPI {
     @Override
     public void patchAlteraObjeto(ObjetoRequest alteraObjetoRequest, UUID idObjeto) {
         log.debug("[start] ObjetoController - patchAlteraObjeto");
+        objetoService.alteraObjeto(alteraObjetoRequest, idObjeto);
         log.debug("[finish] ObjetoController - patchAlteraObjeto");
     }
 }
