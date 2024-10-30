@@ -1,6 +1,7 @@
 package br.com.uniexpress.logismart.destinatario.domain;
 
 import br.com.uniexpress.logismart.destinatario.application.api.DestinatarioRequest;
+import br.com.uniexpress.logismart.util.NormalizerUtil;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -30,13 +31,13 @@ public class Destinatario {
 
     public Destinatario(DestinatarioRequest novoDestinatarioRequest) {
         this.nome = novoDestinatarioRequest.getNome();
-        this.telefone = novoDestinatarioRequest.getTelefone();
-        this.cep = novoDestinatarioRequest.getCep();
+        this.telefone = NormalizerUtil.normalizar(novoDestinatarioRequest.getTelefone());
+        this.cep = NormalizerUtil.normalizar(novoDestinatarioRequest.getCep());
     }
 
     public void alteraDestinatario(DestinatarioRequest alteraDestinatarioRequest) {
         this.nome = alteraDestinatarioRequest.getNome();
-        this.telefone = alteraDestinatarioRequest.getTelefone();
-        this.cep = alteraDestinatarioRequest.getCep();
+        this.telefone = NormalizerUtil.normalizar(alteraDestinatarioRequest.getTelefone());
+        this.cep = NormalizerUtil.normalizar(alteraDestinatarioRequest.getCep());
     }
 }
