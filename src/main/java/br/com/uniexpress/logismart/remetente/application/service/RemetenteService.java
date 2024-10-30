@@ -9,4 +9,5 @@ import java.util.UUID;
 public interface RemetenteService {
     NovoRemetenteResponse novoRemetente(RemetenteRequest novoRemetenteRequest);
     RemetenteResponse buscaRemetentePorId(UUID idRemetente);
+    void alteraRemetente(RemetenteRequest alteraRemetenteRequest, UUID idRemetente);
 }

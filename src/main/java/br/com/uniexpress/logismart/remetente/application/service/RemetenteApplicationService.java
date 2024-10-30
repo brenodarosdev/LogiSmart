@@ -33,4 +33,10 @@ public class RemetenteApplicationService implements RemetenteService {
         log.debug("[finish] RemetenteApplicationService - buscaRemetentePorId");
         return new RemetenteResponse(remetente);
     }
+
+    @Override
+    public void alteraRemetente(RemetenteRequest alteraRemetenteRequest, UUID idRemetente) {
+        log.debug("[start] RemetenteApplicationService - alteraRemetente");
+        log.debug("[finish] RemetenteApplicationService - alteraRemetente");
+    }
 }

@@ -32,6 +32,7 @@ public class RemetenteController implements RemetenteAPI {
     @Override
     public void patchAlteraRemetente(RemetenteRequest alteraRemetenteRequest, UUID idRemetente) {
         log.debug("[start] RemetenteController - patchAlteraRemetente");
+        remetenteService.alteraRemetente(alteraRemetenteRequest, idRemetente);
         log.debug("[finish] RemetenteController - patchAlteraRemetente");
     }
 }
