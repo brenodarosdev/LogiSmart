@@ -45,6 +45,7 @@ public class ObjetoApplicationService implements ObjetoService {
     @Override
     public ObjetoResponse buscaObjetoPorId(UUID idObjeto) {
         log.debug("[start] ObjetoApplicationService - buscaObjetoPorId");
+        Objeto objeto = objetoRepository.buscaObjetoPorId(idObjeto);
         log.debug("[finish] ObjetoApplicationService - buscaObjetoPorId");
         return null;
     }
