@@ -35,6 +35,7 @@ public class ObjetoInfraRepository implements ObjetoRepository {
     @Override
     public void deletaObjetoPorId(UUID idObjeto) {
         log.debug("[start] ObjetoInfraRepository - deletaObjetoPorId");
+        objetoSpringDataJPARepository.deleteById(idObjeto);
         log.debug("[finish] ObjetoInfraRepository - deletaObjetoPorId");
     }
 }
