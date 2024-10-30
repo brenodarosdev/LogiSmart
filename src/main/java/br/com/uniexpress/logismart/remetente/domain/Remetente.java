@@ -43,4 +43,11 @@ public class Remetente {
         this.email = novoRemetenteRequest.getEmail();
         this.cep = novoRemetenteRequest.getCep();
     }
+
+    public void alteraRemetente(RemetenteRequest alteraRemetenteRequest) {
+        this.nome = alteraRemetenteRequest.getNome();
+        this.telefone = alteraRemetenteRequest.getTelefone();
+        this.email = alteraRemetenteRequest.getEmail();
+        this.cep = alteraRemetenteRequest.getCep();
+    }
 }
