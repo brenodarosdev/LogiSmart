@@ -26,4 +26,9 @@ public interface ObjetoAPI {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Edita campos do objeto")
     void patchAlteraObjeto(@RequestBody @Valid ObjetoRequest alteraObjetoRequest, @PathVariable UUID idObjeto);
+
+    @DeleteMapping("/deleta-objeto/{idObjeto}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(summary = "Deleta objeto")
+    void deleteDeletaObjeto(@PathVariable UUID idObjeto);
 }
