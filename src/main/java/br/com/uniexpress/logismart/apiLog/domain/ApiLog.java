@@ -2,8 +2,8 @@ package br.com.uniexpress.logismart.apiLog.domain;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
-import lombok.NonNull;
 import lombok.ToString;
 
 import java.time.LocalDateTime;
@@ -17,7 +17,7 @@ public class ApiLog {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(columnDefinition = "uuid", updatable = false, unique = true, nullable = false)
     private UUID id;
-    @NonNull
+    @NotNull
     private LocalDateTime horarioDaConsulta;
     @Lob
     @NotBlank
