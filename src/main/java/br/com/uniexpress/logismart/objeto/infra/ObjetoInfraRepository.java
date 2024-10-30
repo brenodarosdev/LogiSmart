@@ -31,4 +31,10 @@ public class ObjetoInfraRepository implements ObjetoRepository {
         log.debug("[finish] ObjetoInfraRepository - buscaObjetoPorId");
         return objeto;
     }
+
+    @Override
+    public void deletaObjetoPorId(UUID idObjeto) {
+        log.debug("[start] ObjetoInfraRepository - deletaObjetoPorId");
+        log.debug("[finish] ObjetoInfraRepository - deletaObjetoPorId");
+    }
 }

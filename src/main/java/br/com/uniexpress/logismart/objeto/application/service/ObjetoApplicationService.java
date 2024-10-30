@@ -66,6 +66,8 @@ public class ObjetoApplicationService implements ObjetoService {
     @Override
     public void deletaObjeto(UUID idObjeto) {
         log.debug("[start] ObjetoApplicationService - deletaObjeto");
+        objetoRepository.buscaObjetoPorId(idObjeto);
+        objetoRepository.deletaObjetoPorId(idObjeto);
         log.debug("[finish] ObjetoApplicationService - deletaObjeto");
     }
 }
