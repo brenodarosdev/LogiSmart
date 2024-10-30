@@ -1,5 +1,6 @@
 package br.com.uniexpress.logismart.objeto.domain;
 
+import br.com.uniexpress.logismart.handler.APIException;
 import br.com.uniexpress.logismart.objeto.application.api.ObjetoRequest;
 import br.com.uniexpress.logismart.viacep.application.service.ViaCepResponse;
 import jakarta.persistence.*;
@@ -8,6 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.http.HttpStatus;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -60,4 +62,11 @@ public class Objeto {
         this.valorFrete = calculaFrete(enderecoRemetente, enderecoDestinatario);
         this.cepDeDestino = enderecoDestinatario.getCep();
     }
+
+    public void alteraStatusParaACaminho() {
+        if (!this.status.equals(StausEnvio.A_CAMINHO)) {
+            this.status = StausEnvio.A_CAMINHO;
+        } else {
+            throw APIException.build(HttpStatus.CONFLICT, "O status já está definido para a caminho");
+        }    }
 }

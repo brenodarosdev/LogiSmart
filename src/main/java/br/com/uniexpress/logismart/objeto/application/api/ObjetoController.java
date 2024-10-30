@@ -42,4 +42,11 @@ public class ObjetoController implements ObjetoAPI {
         objetoService.deletaObjeto(idObjeto);
         log.debug("[finish] ObjetoController - deleteDeletaObjeto");
     }
+
+    @Override
+    public void patchAlteraStatusParaACaminho(UUID idObjeto) {
+        log.debug("[start] ObjetoController - patchAlteraStatusParaACaminho");
+        objetoService.alteraStatusParaACaminho(idObjeto);
+        log.debug("[finish] ObjetoController - patchAlteraStatusParaACaminho");
+    }
 }

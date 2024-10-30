@@ -31,4 +31,9 @@ public interface ObjetoAPI {
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Deleta objeto")
     void deleteDeletaObjeto(@PathVariable UUID idObjeto);
+
+    @PatchMapping("/a-caminho/{idObjeto}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @Operation(summary = "Muda status para A_CAMINHO")
+    void patchAlteraStatusParaACaminho(@PathVariable UUID idObjeto);
 }
