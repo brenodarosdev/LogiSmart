@@ -2,6 +2,7 @@ package br.com.uniexpress.logismart.remetente.domain;
 
 import br.com.uniexpress.logismart.remetente.application.api.AlteraRemetenteRequest;
 import br.com.uniexpress.logismart.remetente.application.api.RemetenteRequest;
+import br.com.uniexpress.logismart.util.NormalizerUtil;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
@@ -39,16 +40,16 @@ public class Remetente {
 
     public Remetente(RemetenteRequest novoRemetenteRequest) {
         this.nome = novoRemetenteRequest.getNome();
-        this.cnpj = novoRemetenteRequest.getCnpj();
-        this.telefone = novoRemetenteRequest.getTelefone();
+        this.cnpj = NormalizerUtil.normalizar(novoRemetenteRequest.getCnpj());
+        this.telefone = NormalizerUtil.normalizar(novoRemetenteRequest.getTelefone());
         this.email = novoRemetenteRequest.getEmail();
-        this.cep = novoRemetenteRequest.getCep();
+        this.cep = NormalizerUtil.normalizar(novoRemetenteRequest.getCep());
     }
 
     public void alteraRemetente(AlteraRemetenteRequest alteraRemetenteRequest) {
         this.nome = alteraRemetenteRequest.getNome();
-        this.telefone = alteraRemetenteRequest.getTelefone();
+        this.telefone = NormalizerUtil.normalizar(alteraRemetenteRequest.getTelefone());
         this.email = alteraRemetenteRequest.getEmail();
-        this.cep = alteraRemetenteRequest.getCep();
+        this.cep = NormalizerUtil.normalizar(alteraRemetenteRequest.getCep());
     }
 }
