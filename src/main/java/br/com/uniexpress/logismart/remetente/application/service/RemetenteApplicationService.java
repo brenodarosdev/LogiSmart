@@ -1,5 +1,6 @@
 package br.com.uniexpress.logismart.remetente.application.service;
 
+import br.com.uniexpress.logismart.remetente.application.api.AlteraRemetenteRequest;
 import br.com.uniexpress.logismart.remetente.application.api.NovoRemetenteResponse;
 import br.com.uniexpress.logismart.remetente.application.api.RemetenteRequest;
 import br.com.uniexpress.logismart.remetente.application.api.RemetenteResponse;
@@ -35,7 +36,7 @@ public class RemetenteApplicationService implements RemetenteService {
     }
 
     @Override
-    public void alteraRemetente(RemetenteRequest alteraRemetenteRequest, UUID idRemetente) {
+    public void alteraRemetente(AlteraRemetenteRequest alteraRemetenteRequest, UUID idRemetente) {
         log.debug("[start] RemetenteApplicationService - alteraRemetente");
         Remetente remetente = remetenteRepository.buscaRemetentePorId(idRemetente);
         remetente.alteraRemetente(alteraRemetenteRequest);

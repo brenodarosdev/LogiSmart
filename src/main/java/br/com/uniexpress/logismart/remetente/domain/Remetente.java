@@ -1,5 +1,6 @@
 package br.com.uniexpress.logismart.remetente.domain;
 
+import br.com.uniexpress.logismart.remetente.application.api.AlteraRemetenteRequest;
 import br.com.uniexpress.logismart.remetente.application.api.RemetenteRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -44,7 +45,7 @@ public class Remetente {
         this.cep = novoRemetenteRequest.getCep();
     }
 
-    public void alteraRemetente(RemetenteRequest alteraRemetenteRequest) {
+    public void alteraRemetente(AlteraRemetenteRequest alteraRemetenteRequest) {
         this.nome = alteraRemetenteRequest.getNome();
         this.telefone = alteraRemetenteRequest.getTelefone();
         this.email = alteraRemetenteRequest.getEmail();

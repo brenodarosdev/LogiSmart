@@ -25,6 +25,6 @@ public interface RemetenteAPI {
     @PatchMapping("/altera-remetente/{idRemetente}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Edita campos do remetente")
-    void patchAlteraRemetente(@RequestBody @Valid RemetenteRequest alteraRemetenteRequest,
+    void patchAlteraRemetente(@RequestBody @Valid AlteraRemetenteRequest alteraRemetenteRequest,
                              @PathVariable UUID idRemetente);
 }
