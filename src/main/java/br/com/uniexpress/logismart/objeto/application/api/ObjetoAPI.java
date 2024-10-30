@@ -36,4 +36,9 @@ public interface ObjetoAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     @Operation(summary = "Muda status para A_CAMINHO")
     void patchAlteraStatusParaACaminho(@PathVariable UUID idObjeto);
+
+    @PatchMapping("/entregue/{idObjeto}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    @Operation(summary = "Muda status para ENTREGUE")
+    void patchAlteraStatusParaEntregue(@PathVariable UUID idObjeto);
 }
