@@ -79,4 +79,10 @@ public class ObjetoApplicationService implements ObjetoService {
         objetoRepository.salvaObjeto(objeto);
         log.debug("[finish] ObjetoApplicationService - alteraStatusParaACaminho");
     }
+
+    @Override
+    public void alteraStatusParaEntregue(UUID idObjeto) {
+        log.debug("[start] ObjetoApplicationService - alteraStatusParaEntregue");
+        log.debug("[finish] ObjetoApplicationService - alteraStatusParaEntregue");
+    }
 }

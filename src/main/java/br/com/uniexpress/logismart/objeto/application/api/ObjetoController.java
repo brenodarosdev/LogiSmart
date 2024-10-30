@@ -53,6 +53,7 @@ public class ObjetoController implements ObjetoAPI {
     @Override
     public void patchAlteraStatusParaEntregue(UUID idObjeto) {
         log.debug("[start] ObjetoController - patchAlteraStatusParaEntregue");
+        objetoService.alteraStatusParaEntregue(idObjeto);
         log.debug("[finish] ObjetoController - patchAlteraStatusParaEntregue");
     }
 }
