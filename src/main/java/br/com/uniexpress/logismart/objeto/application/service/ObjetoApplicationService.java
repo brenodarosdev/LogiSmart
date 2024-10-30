@@ -70,4 +70,10 @@ public class ObjetoApplicationService implements ObjetoService {
         objetoRepository.deletaObjetoPorId(idObjeto);
         log.debug("[finish] ObjetoApplicationService - deletaObjeto");
     }
+
+    @Override
+    public void alteraStatusParaACaminho(UUID idObjeto) {
+        log.debug("[start] ObjetoApplicationService - alteraStatusParaACaminho");
+        log.debug("[finish] ObjetoApplicationService - alteraStatusParaACaminho");
+    }
 }

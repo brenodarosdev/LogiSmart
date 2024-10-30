@@ -46,6 +46,7 @@ public class ObjetoController implements ObjetoAPI {
     @Override
     public void patchAlteraStatusParaACaminho(UUID idObjeto) {
         log.debug("[start] ObjetoController - patchAlteraStatusParaACaminho");
+        objetoService.alteraStatusParaACaminho(idObjeto);
         log.debug("[finish] ObjetoController - patchAlteraStatusParaACaminho");
     }
 }
