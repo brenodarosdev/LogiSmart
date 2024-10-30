@@ -51,4 +51,13 @@ public class Objeto {
         }
         return BigDecimal.ZERO;
     }
+
+    public void alteraObjeto(ObjetoRequest alteraObjetoRequest, ViaCepResponse enderecoRemetente, ViaCepResponse enderecoDestinatario) {
+        this.idRemetente = alteraObjetoRequest.getIdRemetente();
+        this.idDestinatario = alteraObjetoRequest.getIdDestinatario();
+        this.descricao = alteraObjetoRequest.getDescricao();
+        this.quilos = alteraObjetoRequest.getQuilos();
+        this.valorFrete = calculaFrete(enderecoRemetente, enderecoDestinatario);
+        this.cepDeDestino = enderecoDestinatario.getCep();
+    }
 }
