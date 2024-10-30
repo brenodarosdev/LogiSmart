@@ -21,4 +21,9 @@ public interface ObjetoAPI {
     @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Busca objeto por ID")
     ObjetoResponse getBuscaObjetoPorId(@PathVariable UUID idObjeto);
+
+    @PatchMapping("/altera-objeto/{idObjeto}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @Operation(summary = "Edita campos do objeto")
+    void patchAlteraObjeto(@RequestBody @Valid ObjetoRequest alteraObjetoRequest, @PathVariable UUID idObjeto);
 }
