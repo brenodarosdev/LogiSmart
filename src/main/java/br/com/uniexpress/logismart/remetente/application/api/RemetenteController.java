@@ -28,4 +28,11 @@ public class RemetenteController implements RemetenteAPI {
         log.debug("[finish] RemetenteController - getBuscaRemetentePorId");
         return response;
     }
+
+    @Override
+    public void patchAlteraRemetente(AlteraRemetenteRequest alteraRemetenteRequest, UUID idRemetente) {
+        log.debug("[start] RemetenteController - patchAlteraRemetente");
+        remetenteService.alteraRemetente(alteraRemetenteRequest, idRemetente);
+        log.debug("[finish] RemetenteController - patchAlteraRemetente");
+    }
 }
