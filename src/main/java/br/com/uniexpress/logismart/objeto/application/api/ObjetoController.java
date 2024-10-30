@@ -24,7 +24,8 @@ public class ObjetoController implements ObjetoAPI {
     @Override
     public ObjetoResponse getBuscaObjetoPorId(UUID idObjeto) {
         log.debug("[start] ObjetoController - getBuscaObjetoPorId");
+        ObjetoResponse response = objetoService.buscaObjetoPorId(idObjeto);
         log.debug("[finish] ObjetoController - getBuscaObjetoPorId");
-        return null;
+        return response;
     }
 }
