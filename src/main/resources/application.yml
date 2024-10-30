@@ -23,3 +23,6 @@ springdoc:
 logging:
   level:
     br.com.uniexpress: ${LOG_LEVEL:DEBUG}
+
+viacep:
+  url: http://localhost:8181/stub/viacep/ws

@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/stub/viacep/ws/04571-009/json"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "viacep-get-ok-erro.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}
