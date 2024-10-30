@@ -35,4 +35,10 @@ public class ObjetoController implements ObjetoAPI {
         objetoService.alteraObjeto(alteraObjetoRequest, idObjeto);
         log.debug("[finish] ObjetoController - patchAlteraObjeto");
     }
+
+    @Override
+    public void deleteDeletaObjeto(UUID idObjeto) {
+        log.debug("[start] ObjetoController - deleteDeletaObjeto");
+        log.debug("[finish] ObjetoController - deleteDeletaObjeto");
+    }
 }
