@@ -53,6 +53,13 @@ public class ObjetoApplicationService implements ObjetoService {
     @Override
     public void alteraObjeto(ObjetoRequest alteraObjetoRequest, UUID idObjeto) {
         log.debug("[start] ObjetoApplicationService - alteraObjeto");
+        Objeto objeto = objetoRepository.buscaObjetoPorId(idObjeto);
+        Remetente remetente = remetenteRepository.buscaRemetentePorId(alteraObjetoRequest.getIdRemetente());
+        Destinatario destinatario = destinatarioRepository.buscaDestinatarioPorId(alteraObjetoRequest.getIdDestinatario());
+        ViaCepResponse enderecoRemetente = viaCepService.consultaCep(remetente.getCep());
+        ViaCepResponse enderecoDestinatario = viaCepService.consultaCep(destinatario.getCep());
+        objeto.alteraObjeto(alteraObjetoRequest, enderecoRemetente, enderecoDestinatario);
+        objetoRepository.salvaObjeto(objeto);
         log.debug("[finish] ObjetoApplicationService - alteraObjeto");
     }
 }
