@@ -15,8 +15,7 @@ public class ApiLogApplicationService implements ApiLogService {
     @Override
     public void salvaLog(String response) {
         log.debug("[start] ApiLogApplicationService - salvaLog");
-        ApiLog apiLog = new ApiLog(response);
-        apiLogRepository.salvaLog(apiLog);
+        apiLogRepository.salvaLog(new ApiLog(response));
         log.debug("[finish] ApiLogApplicationService - salvaLog");
     }
 }

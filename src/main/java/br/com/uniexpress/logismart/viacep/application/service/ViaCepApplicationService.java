@@ -15,7 +15,7 @@ public class ViaCepApplicationService implements ViaCepService {
     private final ApiLogService apiLogService;
 
     @Override
-    public ViaCepResponse ConsultaCep(String cep) {
+    public ViaCepResponse consultaCep(String cep) {
         log.debug("[start] ViaCepApplicationService - ConsultaCep");
         ViaCepResponse response = viaCepClientFeign.consultaCep(cep);
         apiLogService.salvaLog(response.toString());
