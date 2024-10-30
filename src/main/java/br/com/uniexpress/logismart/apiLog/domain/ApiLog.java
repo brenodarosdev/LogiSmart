@@ -20,4 +20,9 @@ public class ApiLog {
     @Lob
     @NotBlank
     private String response;
+
+    public ApiLog(String response) {
+        this.horarioDaConsulta = LocalDateTime.now();
+        this.response = response;
+    }
 }
