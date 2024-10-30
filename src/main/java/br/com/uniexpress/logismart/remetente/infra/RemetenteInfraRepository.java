@@ -39,6 +39,7 @@ public class RemetenteInfraRepository implements RemetenteRepository {
     @Override
     public void deletaRemetentePorId(UUID idRemetente) {
         log.debug("[start] RemetenteInfraRepository - deletaRemetentePorId");
+        remetenteSpringDataJPARepository.deleteById(idRemetente);
         log.debug("[finish] RemetenteInfraRepository - deletaRemetentePorId");
     }
 }
