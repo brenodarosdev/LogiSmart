@@ -6,6 +6,8 @@ import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.UUID;
+
 @RestController
 @Tag(name = "Objeto")
 @RequestMapping("/public/v1/objeto")
@@ -14,4 +16,9 @@ public interface ObjetoAPI {
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Cria novo objeto")
     NovoObjetoResponse postNovoObjeto(@RequestBody @Valid ObjetoRequest novoObjetoRequest);
+
+    @GetMapping("/busca-objeto/{idObjeto}")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(summary = "Busca objeto por ID")
+    ObjetoResponse getBuscaObjetoPorId(@PathVariable UUID idObjeto);
 }

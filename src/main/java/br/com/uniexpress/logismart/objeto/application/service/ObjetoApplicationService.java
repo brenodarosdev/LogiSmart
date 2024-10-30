@@ -6,6 +6,7 @@ import br.com.uniexpress.logismart.destinatario.domain.Destinatario;
 import br.com.uniexpress.logismart.destinatario.infra.DestinatarioRepository;
 import br.com.uniexpress.logismart.objeto.application.api.NovoObjetoResponse;
 import br.com.uniexpress.logismart.objeto.application.api.ObjetoRequest;
+import br.com.uniexpress.logismart.objeto.application.api.ObjetoResponse;
 import br.com.uniexpress.logismart.objeto.domain.Objeto;
 import br.com.uniexpress.logismart.objeto.infra.ObjetoRepository;
 import br.com.uniexpress.logismart.remetente.domain.Remetente;
@@ -16,6 +17,8 @@ import br.com.uniexpress.logismart.viacep.application.service.ViaCepService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
+
+import java.util.UUID;
 
 @Log4j2
 @Service
@@ -37,5 +40,13 @@ public class ObjetoApplicationService implements ObjetoService {
         objetoRepository.salvaObjeto(objeto);
         log.debug("[finish] ObjetoApplicationService - novoObjeto");
         return new NovoObjetoResponse(objeto);
+    }
+
+    @Override
+    public ObjetoResponse buscaObjetoPorId(UUID idObjeto) {
+        log.debug("[start] ObjetoApplicationService - buscaObjetoPorId");
+        Objeto objeto = objetoRepository.buscaObjetoPorId(idObjeto);
+        log.debug("[finish] ObjetoApplicationService - buscaObjetoPorId");
+        return new ObjetoResponse(objeto);
     }
 }
