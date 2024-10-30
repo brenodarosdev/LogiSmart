@@ -47,6 +47,8 @@ public class RemetenteApplicationService implements RemetenteService {
     @Override
     public void deletaRemetente(UUID idRemetente) {
         log.debug("[start] RemetenteApplicationService - deletaRemetente");
+        remetenteRepository.buscaRemetentePorId(idRemetente);
+        remetenteRepository.deletaRemetentePorId(idRemetente);
         log.debug("[finish] RemetenteApplicationService - deletaRemetente");
     }
 }
