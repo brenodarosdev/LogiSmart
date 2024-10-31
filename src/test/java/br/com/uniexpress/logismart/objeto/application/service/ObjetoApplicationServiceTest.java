@@ -105,4 +105,15 @@ class ObjetoApplicationServiceTest {
 
         verify(objetoRepository).salvaObjeto(any(Objeto.class));
     }
+
+    @Test
+    void deveAlterarStatusParaEntregue() {
+        Objeto objeto = DataHelper.criaObjeto();
+        UUID idObjeto = objeto.getId();
+
+        when(objetoRepository.buscaObjetoPorId(idObjeto)).thenReturn(objeto);
+        objetoApplicationService.alteraStatusParaEntregue(idObjeto);
+
+        verify(objetoRepository).salvaObjeto(any(Objeto.class));
+    }
 }
