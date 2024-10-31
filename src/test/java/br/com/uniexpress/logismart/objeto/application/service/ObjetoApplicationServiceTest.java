@@ -117,6 +117,17 @@ class ObjetoApplicationServiceTest {
     }
 
     @Test
+    void deveLancarExcecaoQuandoStatusJaEstaACaminho() {
+        Objeto objeto = DataHelper.criaObjeto();
+        objeto.alteraStatusParaACaminho();
+        UUID idObjeto = objeto.getId();
+
+        when(objetoRepository.buscaObjetoPorId(idObjeto)).thenReturn(objeto);
+
+        assertThrows(RuntimeException.class, () -> objetoApplicationService.alteraStatusParaACaminho(idObjeto));
+    }
+
+    @Test
     void deveAlterarStatusParaEntregue() {
         Objeto objeto = DataHelper.criaObjeto();
         UUID idObjeto = objeto.getId();
