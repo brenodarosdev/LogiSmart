@@ -2,6 +2,7 @@ package br.com.uniexpress.logismart.objeto.application.service;
 
 import br.com.uniexpress.logismart.destinatario.domain.Destinatario;
 import br.com.uniexpress.logismart.destinatario.infra.DestinatarioRepository;
+import br.com.uniexpress.logismart.handler.APIException;
 import br.com.uniexpress.logismart.objeto.application.api.NovoObjetoResponse;
 import br.com.uniexpress.logismart.objeto.application.api.ObjetoRequest;
 import br.com.uniexpress.logismart.objeto.application.api.ObjetoResponse;
@@ -17,11 +18,11 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
 
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -71,6 +72,15 @@ class ObjetoApplicationServiceTest {
         verify(objetoRepository).buscaObjetoPorId(idObjeto);
         assertNotNull(objetoResponse);
         assertEquals(ObjetoResponse.class, objetoResponse.getClass());
+    }
+
+    @Test
+    void deveRetornarExcecaoQuandoObjetoNaoEncontrado() {
+        UUID idObjeto = UUID.randomUUID();
+
+        when(objetoRepository.buscaObjetoPorId(idObjeto)).thenThrow(APIException.build(HttpStatus.NOT_FOUND, "Objeto não encontrado!"));
+
+        assertThrows(APIException.class, () -> objetoApplicationService.buscaObjetoPorId(idObjeto));
     }
 
     @Test
