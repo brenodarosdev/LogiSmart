@@ -72,4 +72,26 @@ class ObjetoApplicationServiceTest {
         assertNotNull(objetoResponse);
         assertEquals(ObjetoResponse.class, objetoResponse.getClass());
     }
+
+    @Test
+    void deveAlterarObjeto() {
+        Objeto objeto = DataHelper.criaObjeto();
+        UUID idObjeto = objeto.getId();
+        Remetente remetente = DataHelper.criaRemetente();
+        UUID idRemetente = remetente.getId();
+        Destinatario destinatario = DataHelper.criaDestinatario();
+        UUID idDestinatario = destinatario.getId();
+        ViaCepResponse enderecoRemetente = DataHelper.criaViaCepResponse();
+        ViaCepResponse enderecoDestinatario = DataHelper.criaViaCepResponse2();
+        ObjetoRequest objetoRequest = DataHelper.criaObjetoRequest();
+
+        when(objetoRepository.buscaObjetoPorId(idObjeto)).thenReturn(objeto);
+        when(remetenteRepository.buscaRemetentePorId(idRemetente)).thenReturn(remetente);
+        when(destinatarioRepository.buscaDestinatarioPorId(idDestinatario)).thenReturn(destinatario);
+        when(viaCepService.consultaCep(remetente.getCep())).thenReturn(enderecoRemetente);
+        when(viaCepService.consultaCep(destinatario.getCep())).thenReturn(enderecoDestinatario);
+        objetoApplicationService.alteraObjeto(objetoRequest, idObjeto);
+
+        verify(objetoRepository).salvaObjeto(any(Objeto.class));
+    }
 }
