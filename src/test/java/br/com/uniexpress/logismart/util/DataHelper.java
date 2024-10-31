@@ -66,4 +66,8 @@ public class DataHelper {
     public static ObjetoRequest criaObjetoRequest() {
         return new ObjetoRequest(criaRemetente().getId(), criaDestinatario().getId(), "Objeto de teste", 10.0);
     }
+
+    public static Objeto criaObjeto() {
+        return new Objeto(criaObjetoRequest(), criaViaCepResponse(), criaViaCepResponse2());
+    }
 }

@@ -4,6 +4,7 @@ import br.com.uniexpress.logismart.destinatario.domain.Destinatario;
 import br.com.uniexpress.logismart.destinatario.infra.DestinatarioRepository;
 import br.com.uniexpress.logismart.objeto.application.api.NovoObjetoResponse;
 import br.com.uniexpress.logismart.objeto.application.api.ObjetoRequest;
+import br.com.uniexpress.logismart.objeto.application.api.ObjetoResponse;
 import br.com.uniexpress.logismart.objeto.domain.Objeto;
 import br.com.uniexpress.logismart.objeto.infra.ObjetoRepository;
 import br.com.uniexpress.logismart.remetente.domain.Remetente;
@@ -57,5 +58,18 @@ class ObjetoApplicationServiceTest {
         verify(objetoRepository).salvaObjeto(any(Objeto.class));
         assertNotNull(novoObjetoResponse);
         assertEquals(NovoObjetoResponse.class, novoObjetoResponse.getClass());
+    }
+
+    @Test
+    void deveBuscarObjetoPorId() {
+        Objeto objeto = DataHelper.criaObjeto();
+        UUID idObjeto = objeto.getId();
+
+        when(objetoRepository.buscaObjetoPorId(idObjeto)).thenReturn(objeto);
+        ObjetoResponse objetoResponse = objetoApplicationService.buscaObjetoPorId(idObjeto);
+
+        verify(objetoRepository).buscaObjetoPorId(idObjeto);
+        assertNotNull(objetoResponse);
+        assertEquals(ObjetoResponse.class, objetoResponse.getClass());
     }
 }
