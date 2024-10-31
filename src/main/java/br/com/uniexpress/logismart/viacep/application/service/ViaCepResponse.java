@@ -33,4 +33,20 @@ public class ViaCepResponse {
     private String ddd;
     @JsonProperty("siafi")
     private String siafi;
+
+    public ViaCepResponse(String cep, String logradouro, String complemento, String unidade, String bairro, String localidade, String uf, String estado, String regiao, String ibge, String gia, String ddd, String siafi) {
+        this.cep = cep;
+        this.logradouro = logradouro;
+        this.complemento = complemento;
+        this.unidade = unidade;
+        this.bairro = bairro;
+        this.localidade = localidade;
+        this.uf = uf;
+        this.estado = estado;
+        this.regiao = regiao;
+        this.ibge = ibge;
+        this.gia = gia;
+        this.ddd = ddd;
+        this.siafi = siafi;
+    }
 }
