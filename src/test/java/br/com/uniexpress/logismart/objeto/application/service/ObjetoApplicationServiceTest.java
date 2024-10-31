@@ -116,4 +116,15 @@ class ObjetoApplicationServiceTest {
 
         verify(objetoRepository).salvaObjeto(any(Objeto.class));
     }
+
+    @Test
+    void deveDeletarObjeto() {
+        Objeto objeto = DataHelper.criaObjeto();
+        UUID idObjeto = objeto.getId();
+
+        when(objetoRepository.buscaObjetoPorId(idObjeto)).thenReturn(objeto);
+        objetoApplicationService.deletaObjeto(idObjeto);
+
+        verify(objetoRepository).deletaObjetoPorId(idObjeto);
+    }
 }
